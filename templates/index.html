@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SGPA Calculator</title>
+</head>
+<body>
+    <h1>Enter Your Marks</h1>
+    <form method="POST">
+        {% for subject in subjects %}
+            <h3>{{ subject.name }} (Max: {{ subject.max_marks }})</h3>
+
+            {% if subject.type == "internal_external" %}
+                Internal: <input type="number" name="internal_{{ loop.index0 }}" required>
+                External: <input type="number" name="external_{{ loop.index0 }}" required>
+            {% else %}
+                Total: <input type="number" name="total_{{ loop.index0 }}" required>
+            {% endif %}
+
+            <br><br>
+        {% endfor %}
+        <button type="submit">Calculate SGPA</button>
+    </form>
+</body>
+</html>

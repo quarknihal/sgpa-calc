@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SGPA Result</title>
+</head>
+<body>
+    <h1>Your SGPA: {{ sgpa }}</h1>
+    <table border="1">
+        <tr>
+            <th>Subject</th>
+            <th>Total Marks</th>
+            <th>Percentage</th>
+            <th>Grade Point</th>
+            <th>Credits</th>
+        </tr>
+        {% for res in results %}
+        <tr>
+            <td>{{ res.name }}</td>
+            <td>{{ res.total }}</td>
+            <td>{{ res.percentage }}</td>
+            <td>{{ res.grade_point }}</td>
+            <td>{{ res.credits }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Calculate Again</a>
+</body>
+</html>
