@@ -17,17 +17,17 @@ subjects = [
 ]
 
 # DB config - replace these with your Render/Postgres credentials
-DB_NAME = "your_db_name"
-DB_USER = "your_db_user"
-DB_PASSWORD = "your_db_password"
-DB_HOST = "your_db_host"
+DB_NAME = "sgpa_database"
+DB_USER = "sgpa_database_user"
+DB_PASSWORD = "SX1CaaJHo1jOPbD1yAM2VRHIbdZtCjF0"
+DB_HOST = "dpg-d1ucdvumcj7s73ectj6g-a"
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname=sgpa_database,
-        user=sgpa_database_user,
-        password=SX1CaaJHo1jOPbD1yAM2VRHIbdZtCjF0,
-        host=dpg-d1ucdvumcj7s73ectj6g-a,
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
         port="5432"
     )
 
