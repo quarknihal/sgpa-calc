@@ -5,7 +5,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Fixed subject details
 subjects = [
     {"name": "Physics", "max_marks": 150, "credits": 5, "type": "internal_external"},
     {"name": "Mathematics-II", "max_marks": 100, "credits": 4, "type": "internal_external"},
@@ -16,7 +15,6 @@ subjects = [
     {"name": "Mentoring", "max_marks": 100, "credits": 1, "type": "total_only"},
 ]
 
-# DB config - replace these with your Render/Postgres credentials
 DB_NAME = "sgpa_database"
 DB_USER = "sgpa_database_user"
 DB_PASSWORD = "SX1CaaJHo1jOPbD1yAM2VRHIbdZtCjF0"
@@ -31,7 +29,6 @@ def get_db_connection():
         port="5432"
     )
 
-# Create table if it doesn’t exist
 def create_table():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -79,7 +76,7 @@ def index():
                 internal = float(request.form.get(f"internal_{idx}", 0))
                 external = float(request.form.get(f"external_{idx}", 0))
                 total = internal + external
-            else:  # total_only
+            else: 
                 total = float(request.form.get(f"total_{idx}", 0))
 
             percentage = (total / subject["max_marks"]) * 100
@@ -98,7 +95,6 @@ def index():
 
         sgpa = round(weighted_points / total_credits, 2)
 
-        # Save submission to DB
         conn = get_db_connection()
         cur = conn.cursor()
         cur.execute(
