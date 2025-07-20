@@ -24,10 +24,10 @@ DB_HOST = "your_db_host"
 
 def get_db_connection():
     return psycopg2.connect(
-        dbname=DB_NAME,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        host=DB_HOST,
+        dbname=sgpa_database,
+        user=sgpa_database_user,
+        password=SX1CaaJHo1jOPbD1yAM2VRHIbdZtCjF0,
+        host=dpg-d1ucdvumcj7s73ectj6g-a,
         port="5432"
     )
 
