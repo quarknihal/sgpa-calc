@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>All Submissions</title>
+</head>
+<body>
+<h1>All Submissions</h1>
+{% for s in submissions %}
+    <div>
+        <h3>ID: {{s.id}} | SGPA: {{s.sgpa}} | Time: {{s.timestamp}}</h3>
+        <ul>
+            {% for item in s.data %}
+                <li>{{item.name}}: {{item.total}} marks, GP: {{item.grade_point}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <hr>
+{% endfor %}
+</body>
+</html>
